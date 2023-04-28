@@ -4,7 +4,7 @@
   import { onMount } from 'svelte';
   import { username, user } from './user';
   import debounce from 'lodash.debounce';
-
+  import Pusher from 'pusher-js';
   import GUN from 'gun';
   const db = GUN();
 
@@ -15,6 +15,8 @@
   let lastScrollTop;
   let canAutoScroll = true;
   let unreadMessages = false;
+
+
 
   function autoScroll() {
     setTimeout(() => scrollBottom?.scrollIntoView({ behavior: 'auto' }), 50);
@@ -44,7 +46,7 @@
       .once(async (data, id) => {
         if (data) {
           // Key for end-to-end encryption
-          const key = '#foo';
+          const key = '#encryption';
 
           var message = {
             // transform the data
@@ -66,7 +68,7 @@
   });
 
   async function sendMessage() {
-    const secret = await SEA.encrypt(newMessage, '#foo');
+    const secret = await SEA.encrypt(newMessage, '#encryption');
     const message = user.get('all').set({ what: secret });
     const index = new Date().toISOString();
     db.get('chat').get(index).put(message);
