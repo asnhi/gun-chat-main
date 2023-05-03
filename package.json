@@ -28,6 +28,7 @@
     "portfinder": "^1.0.32",
     "pusher-js": "^8.0.2",
     "simplewebrtc": "^3.0.2",
-    "sirv-cli": "^1.0.0"
+    "sirv-cli": "^1.0.0",
+    "yarn": "^1.22.19"
   }
 }
