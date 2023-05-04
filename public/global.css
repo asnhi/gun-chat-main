@@ -249,3 +249,22 @@ header {
 	  font-size: 0.8rem;
 	  padding: 0.5rem 1rem;
   }
+  main.svelte-1tky8bj {
+    text-align: center;
+    padding: 1em;
+    max-width: 240px;
+    margin: 0 auto
+}
+
+h1.svelte-1tky8bj {
+    color: #ff3e00;
+    text-transform: uppercase;
+    font-size: 4em;
+    font-weight: 100
+}
+
+@media(min-width: 640px) {
+    main.svelte-1tky8bj {
+        max-width:none
+    }
+}
